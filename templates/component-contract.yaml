@@ -1,0 +1,43 @@
+id: example-block
+primary_judgment: "One sentence the user should understand"
+content_roles:
+  eyebrow: null
+  heading: null
+  body: null
+  evidence: []
+  source: null
+  cta: null
+claim_ids: []
+asset_ids: []
+layout:
+  family: split | grid | sequence | comparison | editorial | custom
+  reading_path: ""
+  dominant_field: ""
+responsive:
+  desktop: ""
+  tablet: ""
+  mobile: ""
+states:
+  default: ""
+  hover: ""
+  active: ""
+  focus_visible: ""
+  disabled: ""
+  loading: ""
+  empty: ""
+  error: ""
+motion:
+  intensity: 1
+  trigger: ""
+  reduced_motion: ""
+a11y:
+  semantic_element: ""
+  keyboard_path: ""
+  focus_treatment: ""
+  text_alternative: ""
+content_budget:
+  heading: ""
+  label: ""
+  body: ""
+fallback: ""
+owner: ""

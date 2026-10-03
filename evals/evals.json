@@ -1,0 +1,34 @@
+{
+  "skill_name": "archebase-web-ui",
+  "version": "0.1.0",
+  "evals": [
+    {
+      "id": 1,
+      "name": "marketing-homepage",
+      "prompt": "为 ArcheBase 设计一个面向具身智能模型公司的官网首页，要求有 Hero、真实任务数据的转化流程、证据区和 CTA，并且能落到现有 React 项目。先输出 brief、Design Read、组件合同和 QA 方案，不要编造客户或指标。",
+      "expected_output": "Uses vi-guide and visual-design as sources, records route/mode/dials, creates evidence-led blocks and state/responsive QA without invented claims.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "product-ui-states",
+      "prompt": "审查 ArcheBase 的数据编译产品界面，重点是任务列表、失败样本详情、加载/空/错误/权限状态和键盘可用性。不要把营销页的装饰规则套进产品 UI。",
+      "expected_output": "Routes to product-ui, covers state matrix and accessibility, preserves existing system, and distinguishes product behavior from marketing styling.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "redesign-preserve",
+      "prompt": "把现有 ArcheBase 官网做一次保守 redesign：改善层级、移动端和 CTA，但不能悄悄修改 URL、导航标签、埋点、法务文案或 Logo。",
+      "expected_output": "Uses redesign protocol, classifies preserve/guided-overhaul, audits compatibility surfaces, and requires rendered QA plus rollback notes.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "non-branded-near-miss",
+      "prompt": "为一个不属于 ArcheBase 的 SaaS 产品写一个普通 React landing page，不需要品牌治理或 VI 审核。",
+      "expected_output": "Does not trigger ArcheBase-specific workflow as the primary skill.",
+      "files": []
+    }
+  ]
+}

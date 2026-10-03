@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "dependencies": [
+    {
+      "name": "archebase-vi-guide",
+      "repository": "https://github.com/archebase/archebase-vi-guide",
+      "tag": "v3.5.4",
+      "commit": "918d0ec8f05f775d1f34370e0c38fc796da8b83b",
+      "role": "brand authority, approved assets, evidence, modes, route playbooks and release gates"
+    },
+    {
+      "name": "archebase-visual-design",
+      "repository": "https://github.com/archebase/archebase-visual-design",
+      "tag": null,
+      "commit": "dcafc49ef3f05eeb5869e1df9a60fc62aadf2f72",
+      "role": "visual-design application layer and cross-channel design methods"
+    }
+  ]
+}
