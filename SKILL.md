@@ -3,7 +3,7 @@ name: archebase-web-ui
 description: "Use whenever an ArcheBase / 智域基石 website, landing page, product UI, frontend redesign, component system, or web visual review is requested. This skill is the web implementation layer between archebase-vi-guide and archebase-visual-design: it converts approved brand evidence and visual direction into a coherent, accessible, responsive interface without generic AI-front-end patterns. Trigger even when the user asks only for a homepage, redesign, interaction, responsive behavior, or frontend polish, provided the work is ArcheBase-branded."
 license: "Private internal use only. Do not redistribute."
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   status: "experimental"
   dependencies: "skill-dependencies.json"
 compatibility: "Requires a filesystem-capable skill loader. A package manager, browser renderer, or screenshot tool may be needed for implementation QA; Python 3 runs the bundled static checks."
@@ -18,15 +18,19 @@ This skill is the web implementation layer for ArcheBase. It does not replace th
 
 Load and obey these siblings before making brand decisions:
 
-1. `archebase-vi-guide` owns brand facts, approved assets, evidence, modes, route selection and release gates.
-2. `archebase-visual-design` owns content contracts, visual propositions, hierarchy, composition, typography, imagery, accessibility and production methods.
+1. `archebase-vi-guide` owns brand facts, approved assets, evidence, modes, route selection and release gates. Its evidence has two layers that must not be conflated: Guide page evidence, and the asset-derived Logo operating rules in `references/logo-usage-rules.md` / `references/logo-combination-matrix.md`; cite the rule file for a Logo size, clear-space or spacing value, never a Guide page.
+2. `archebase-visual-design` owns content contracts, visual propositions, hierarchy, composition, typography, imagery, accessibility, Gate A–G critique checklists and production methods.
 3. This skill owns web-specific execution: design read, system selection, component contracts, responsive behavior, interaction states, motion, implementation constraints and browser QA.
+
+Before brand-sensitive work, verify the pinned dependency identity from `skill-dependencies.json` (tag `v3.5.10`, commit `16b6e361fcd760bb8dc2c9b72e39debddaeecf54`). A local checkout is only a cache.
 
 If the three layers disagree, brand facts from `archebase-vi-guide` win; visual method from `archebase-visual-design` wins over this skill's preferences; this skill wins only on web implementation detail. Never average conflicting rules. Record the conflict and stop the affected release route when the conflict is material.
 
 ## When it applies
 
 Use for ArcheBase websites, landing pages, product UI, web components, frontend redesigns, responsive layouts, interaction polish, design-system mapping, browser rendering, or web UI review. If the artifact is not ArcheBase-branded, use the ordinary web workflow instead. If the request is a deck, print poster, WeChat article, event screen or image-only asset with no web delivery, do not use this skill as the primary skill.
+
+When a web deliverable hands off Logo-bearing print collateral, route its Logo rules to the upstream `references/logo-usage-rules.md` and hand the print method to `archebase-visual-design`; this skill does not own print.
 
 ## Operating modes and routes
 
@@ -44,6 +48,9 @@ Choose one route:
 ## Non-negotiable boundaries
 
 - Use the official Logo asset resolved by `archebase-vi-guide`; never generate, redraw, trace, recolor, stretch, mask or bake a Logo into an AI image.
+- Route Logo size, clear space, lockup spacing and icon rules to the upstream operating-rule documents (`references/logo-usage-rules.md`, `references/logo-combination-matrix.md` at the pinned baseline). Never restate their numbers here, and never present them as VI Guide facts or attribute them to a Guide page.
+- On web surfaces, the `方形` graphic mark carries no built-in safe margin and cannot be used directly as an icon; use the `方圆通用` family for icons and circular avatars, and the delivered small-size classes below the upstream size floor. Dark-mode headers and dark grounds use only the white families. Large sizes render from the SVG via the upstream `scripts/render_logo.sh`, never by upscaling `png-hires`.
+- Logo blue is the brand token `AB_BLUE_1` resolved from upstream tokens. A hardcoded historical logo blue that survives only as a gradient interpolation value is wrong, is treated as `待换版`, and must never be reintroduced.
 - Do not invent brand tokens, type rules, claims, metrics, customers, product capabilities or public names. If an official answer is absent, write `待确认`.
 - Do not introduce a new accent, theme, component behavior or naming rule as if it were official VI. Mark any creative extension as a route-specific proposal.
 - Do not migrate frameworks, styling systems or component libraries merely to make the work easier. Inspect the existing project first.
@@ -64,6 +71,7 @@ Use `templates/web-ui-brief.md`. State:
 - route and mode;
 - viewport sizes and breakpoints being judged;
 - current brand assets and approved evidence;
+- Logo surfaces in scope — page lockup, favicon/app icon/touch icon, circular avatar, dark-mode header, print handoff — and the upstream operating-rule document each routes to;
 - content and claim boundaries;
 - existing-vs-new surface decision;
 - one-line Design Read: page kind + audience + visual language + implementation foundation.
@@ -99,6 +107,8 @@ Use `templates/component-contract.yaml` and `references/component-contract.md`. 
 
 Prefer ArcheBase-specific evidence structures over generic marketing blocks: system statement, observation-to-task-state transformation, data lineage, QC/failure library, scene authorization, case study and proof-led CTA.
 
+When a block carries the Logo, record the upstream operating-rule source (`references/logo-usage-rules.md` / `references/logo-combination-matrix.md`) in the asset/provenance record. Never restate a Logo metric as a brand fact, and never attribute one to a Guide page.
+
 ### 6. Implement with restraint
 
 Read `references/anti-slop.md`, `references/motion-and-accessibility.md` and `references/content-and-localization.md` when their triggers apply. Use one coherent page theme and shape language unless the existing product system says otherwise. Let evidence, hierarchy and task completion carry the page; use motion and decoration only when they clarify change, focus or causality.
@@ -107,7 +117,7 @@ For redesigns, read `references/redesign-protocol.md` before changing navigation
 
 ### 7. Render and pre-flight
 
-Render at every viewport in the brief and inspect the rendered output, not only source code. Run `checklists/web-ui.md`; use `scripts/validate_skill_bundle.py` for this skill repository and the upstream validators for the pinned VI Guide. Check overflow, wrapping, contrast, focus, keyboard path, state completeness, reduced motion, dark mode if in scope, image crops, loading behavior and performance regressions.
+Render at every viewport in the brief and inspect the rendered output, not only source code. Run `checklists/web-ui.md`; use `scripts/validate_skill_bundle.py` for this skill repository and the upstream validators for the pinned VI Guide. Check overflow, wrapping, contrast, focus, keyboard path, state completeness, reduced motion, dark mode if in scope, image crops, loading behavior and performance regressions. Check every in-scope Logo surface against the upstream operating rules and confirm that no Logo metric is presented as a Guide fact.
 
 ### 8. Return one verdict
 
@@ -137,4 +147,5 @@ Every invocation returns:
 - Read `references/content-and-localization.md` for Chinese/Latin mixed interfaces.
 - Read `references/redesign-protocol.md` for existing-site changes.
 - Read `references/evidence-and-provenance.md` when claims, customer data or external assets appear.
+- Read `references/logo-operating-rules.md` before placing, sizing, cropping or handing off the Logo on a web surface.
 - Read `checklists/web-ui.md` before the release verdict.

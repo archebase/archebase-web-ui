@@ -1,6 +1,6 @@
 {
   "skill_name": "archebase-web-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "evals": [
     {
       "id": 1,
@@ -28,6 +28,13 @@
       "name": "non-branded-near-miss",
       "prompt": "为一个不属于 ArcheBase 的 SaaS 产品写一个普通 React landing page，不需要品牌治理或 VI 审核。",
       "expected_output": "Does not trigger ArcheBase-specific workflow as the primary skill.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "logo-web-surfaces",
+      "prompt": "给 ArcheBase 官网补 favicon、touch icon、圆形头像和深色模式页眉里的 Logo，并核对尺寸、安全带、组合与底色是否符合规范。",
+      "expected_output": "Resolves the icon-safe 方圆通用 and small-size assets from vi-guide; routes size, clear-space and lockup values to the upstream Logo operating rules without restating them as VI Guide facts or Guide page citations; keeps the wordmark alignment unchanged; uses only white families on dark grounds; renders large sizes from the SVG rather than upscaling png-hires; and returns one release verdict.",
       "files": []
     }
   ]

@@ -9,4 +9,5 @@
 - [ ] Reduced-motion fallback exists.
 - [ ] Media and data failure fallbacks exist.
 - [ ] The component does not invent brand rules or claims.
+- [ ] If the component shows the Logo, the upstream operating-rule source is recorded and no Logo metric is stated as a brand fact.
 - [ ] Rendered screenshots were inspected at target sizes.

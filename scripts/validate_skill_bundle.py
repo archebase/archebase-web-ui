@@ -30,12 +30,52 @@ REQUIRED_REFS = [
     "references/content-and-localization.md",
     "references/redesign-protocol.md",
     "references/evidence-and-provenance.md",
+    "references/logo-operating-rules.md",
+]
+
+# Logo size, clear-space and spacing values are asset-derived upstream operating rules.
+# A live doc may route to them but must never restate the number without the upstream reference.
+LOGO_WORD = r"(?:logo|标志|图形标|组合标|favicon|app\s?icon|touch\s?icon|avatar|图标|\bmark\b)"
+LOGO_METRIC = re.compile(
+    rf"(?:{LOGO_WORD}[^。\n]{{0,40}}[0-9]+(?:\.[0-9]+)?\s?(?:px|mm|dp|pt|em))"
+    rf"|(?:[0-9]+(?:\.[0-9]+)?\s?(?:px|mm|dp|pt|em)[^。\n]{{0,40}}{LOGO_WORD})",
+    re.IGNORECASE,
+)
+UPSTREAM_RULE_REF = re.compile(r"references/logo-(?:usage-rules\.md|combination-matrix\.(?:md|json))")
+SCAN_GLOBS = [
+    "SKILL.md",
+    "README.md",
+    "NOTICE.md",
+    "CHANGELOG.md",
+    "references/*.md",
+    "checklists/*.md",
+    "templates/*.md",
+    "templates/*.yaml",
+    "skill-dependencies.json",
+    "evals/evals.json",
 ]
 
 
 def fail(message: str) -> None:
     print(f"FAIL: {message}")
     raise SystemExit(1)
+
+
+def check_logo_metric_routing() -> list[str]:
+    """Every Logo size/clear-space metric must route to an upstream operating-rule document."""
+    violations: list[str] = []
+    for pattern in SCAN_GLOBS:
+        for path in sorted(ROOT.glob(pattern)):
+            if not path.is_file():
+                continue
+            for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+                match = LOGO_METRIC.search(line)
+                if not match:
+                    continue
+                if UPSTREAM_RULE_REF.search(line) or "待确认" in line or "do not infer" in line.lower():
+                    continue
+                violations.append(f"{path.relative_to(ROOT)}:{number}: {match.group(0)}")
+    return violations
 
 
 def main() -> int:
@@ -73,13 +113,24 @@ def main() -> int:
     if evals.get("skill_name") != "archebase-web-ui" or len(evals.get("evals", [])) < 3:
         fail("evals/evals.json must name this skill and contain at least three cases")
 
+    logo_violations = check_logo_metric_routing()
+    if logo_violations:
+        fail(
+            "Logo size/clear-space metric without an upstream operating-rule reference "
+            "(add references/logo-usage-rules.md or references/logo-combination-matrix.md on the same line, "
+            "or mark it 待确认): " + "; ".join(logo_violations)
+        )
+
     # This skill must not silently ship official brand assets.
     forbidden_dirs = ["assets/logos", "智域基石vi基础.pdf", "archebase-design-workspace"]
     for token in forbidden_dirs:
         if (ROOT / token).exists():
             fail(f"bundle must not copy proprietary upstream assets: {token}")
 
-    print(f"PASS: {body_lines} SKILL.md lines; {len(REQUIRED_FILES + REQUIRED_REFS)} required files; dependencies and evals valid")
+    print(
+        f"PASS: {body_lines} SKILL.md lines; {len(REQUIRED_FILES + REQUIRED_REFS)} required files; "
+        f"dependencies, evals and Logo metric routing valid"
+    )
     return 0
 
 

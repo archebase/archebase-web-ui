@@ -13,6 +13,16 @@
 - [ ] Claims, metrics, customer material and third-party assets have owners and sources.
 - [ ] Unknowns are `待确认`, not silently invented.
 
+## Logo surfaces (route to upstream operating rules)
+- [ ] Page lockup keeps the delivered spacing and wordmark alignment; the mark is not redrawn, re-tinted, stretched or masked.
+- [ ] Favicon, app icon and touch icon use the icon-safe family — `方形` has no built-in safe margin and was not used directly as an icon; no round version was produced by masking or scaling `方形`; circular avatars use `方圆通用`.
+- [ ] Sizes meet the upstream size floors, or use the delivered small-size classes below them, instead of scaling the standard mark.
+- [ ] Dark-mode headers and dark grounds use only the white families; no black-family mark (including `黑色渐变`) appears on a dark ground.
+- [ ] Large sizes render from the SVG via `scripts/render_logo.sh`; no `png-hires` bitmap was upscaled, and a missing hires file was not treated as a missing asset.
+- [ ] Logo blue maps to the upstream token `AB_BLUE_1`; no hardcoded historical logo blue was reintroduced.
+- [ ] Every Logo size, clear-space or spacing value cites an upstream operating-rule document (`references/logo-usage-rules.md` / `references/logo-combination-matrix.md`), not a Guide page, and is not restated as a Guide fact.
+- [ ] Logo rules for any hand-off print collateral were routed to the upstream operating rules.
+
 ## Implementation
 - [ ] Existing framework and dependencies inspected.
 - [ ] No unnecessary framework or component-system migration.

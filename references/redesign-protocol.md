@@ -20,7 +20,7 @@ empty/error states, mobile behavior and known user pain points.
 - URL structure and redirects;
 - navigation labels or form field names;
 - legal, privacy or consent copy;
-- Logo/wordmark and public brand name;
+- Logo/wordmark and public brand name, or the Logo's size, clear space and lockup geometry (route these to the upstream operating rules; they are not a redesign variable);
 - data semantics, permission boundaries or customer-facing claims;
 - analytics and experiment identifiers.
 

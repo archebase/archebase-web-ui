@@ -9,6 +9,7 @@ content_roles:
   cta: null
 claim_ids: []
 asset_ids: []
+logo_rule_ref: null   # when the block shows the Logo: upstream references/logo-usage-rules.md / logo-combination-matrix.md, never a Guide page
 layout:
   family: split | grid | sequence | comparison | editorial | custom
   reading_path: ""

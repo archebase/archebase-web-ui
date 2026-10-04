@@ -9,6 +9,7 @@
 ## Evidence
 - VI Guide source / commit:
 - Visual-design source / commit:
+- Logo operating-rule source (upstream `references/logo-usage-rules.md` / `logo-combination-matrix.md`):
 - Claim or asset IDs:
 - Existing project constraints:
 
@@ -28,6 +29,7 @@
 - Rendered viewports:
 - State matrix:
 - Accessibility checks:
+- Logo surfaces checked against the upstream operating rules (not Guide pages):
 - Performance checks:
 - Rights / provenance checks:
 

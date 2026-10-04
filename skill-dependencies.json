@@ -4,16 +4,16 @@
     {
       "name": "archebase-vi-guide",
       "repository": "https://github.com/archebase/archebase-vi-guide",
-      "tag": "v3.5.4",
-      "commit": "918d0ec8f05f775d1f34370e0c38fc796da8b83b",
-      "role": "brand authority, approved assets, evidence, modes, route playbooks and release gates"
+      "tag": "v3.5.10",
+      "commit": "16b6e361fcd760bb8dc2c9b72e39debddaeecf54",
+      "role": "brand authority, approved assets, evidence, modes, route playbooks and release gates; since v3.5.5 it also signs the asset-derived Logo operating rules (references/logo-usage-rules.md, references/logo-combination-matrix.md, assets/logo-combination-matrix.json), which this skill routes to but never restates as Guide facts"
     },
     {
       "name": "archebase-visual-design",
       "repository": "https://github.com/archebase/archebase-visual-design",
       "tag": null,
-      "commit": "dcafc49ef3f05eeb5869e1df9a60fc62aadf2f72",
-      "role": "visual-design application layer and cross-channel design methods"
+      "commit": "6953733d9bdea6aff7227050e88c5e118b32c3a2",
+      "role": "visual-design application layer: Gate A-G critique checklists, cross-channel design methods and the print pre-flight this skill hands collateral off to"
     }
   ]
 }

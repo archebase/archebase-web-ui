@@ -33,6 +33,16 @@
 - Copy status:
 - Unknowns / `待确认`:
 
+## Logo surfaces (route to upstream, never restate)
+- Upstream operating-rule document cited:
+- Page lockup (header / hero / footer):
+- Favicon / app icon / touch icon:
+- Circular avatar and circular crops:
+- Dark-mode header / dark ground:
+- Large sizes and SVG render (`scripts/render_logo.sh`):
+- Print collateral handoff:
+- Confirmation that no Logo metric is stated as a VI Guide fact:
+
 ## Implementation
 - Framework and version:
 - Styling foundation:

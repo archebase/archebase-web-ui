@@ -15,6 +15,7 @@ creating a new component family.
 - Inspect `package.json`, lockfiles and build scripts before imports.
 - Use one component-system foundation per surface. Do not mix multiple competing token systems in one tree without a documented adapter.
 - Keep brand tokens semantic. The upstream VI Guide is the authority for their values and roles.
+- The asset-derived Logo operating rules (upstream `references/logo-usage-rules.md`) are not tokens: route to that file for a Logo size, clear space or lockup value, and never mint a token from one.
 - A web implementation preference is not permission to alter the official VI system.
 - When a new dependency is justified, record its purpose, version, license and rollback path in the decision trace.
 

@@ -10,6 +10,7 @@ when its meaning, content limits and failure behavior are explicit.
 - `content_roles`: eyebrow, heading, body, evidence, source, CTA, etc.;
 - `claim_ids`: IDs for public claims or metrics; use `待确认` when absent;
 - `asset_ids`: approved assets or source records;
+- `logo_rule_ref`: the upstream operating-rule document when the block shows the Logo;
 - `layout`: grid, alignment, crop and reading path;
 - `responsive`: behavior at each in-scope breakpoint;
 - `states`: default, hover, active, focus-visible, disabled, loading, empty, error;
