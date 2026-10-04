@@ -34,6 +34,8 @@ NOTICE.md                        provenance and non-redistribution notes
 python3 scripts/validate_skill_bundle.py
 ```
 
+`scripts/validate_skill_bundle.py` also requires `references/logo-operating-rules.md` and fails when a live file states a Logo size or clear-space metric without routing it to the upstream rule documents (or marking it `待确认`), so an asset-derived rule cannot be reintroduced as an unattributed brand fact.
+
 `references/` includes `logo-operating-rules.md`, the single routing point for every web Logo surface; it points at the upstream rule documents instead of copying their numbers.
 
 ## Feedback
